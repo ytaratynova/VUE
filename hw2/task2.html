@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Вы разрабатываете приложение для отображения и сортировки списка товаров. У вас есть массив объектов products, где каждый объект представляет товар с его названием и ценой. Вам необходимо отобразить список товаров и предоставить пользователю возможность сортировать товары по цене (по возрастанию и по убыванию) -->
+    <div id="app">
+        <button @click="toLow"> по убыванию</button>
+        <button @click="toHeigh"> по возрастанию</button>
+        <ul>
+            <li v-for="product in products" :key="product.name">
+                <span>Продукт: {{ product.name }} - цена: {{ product.price }}</span>
+            </li>
+        </ul>
+
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                products: [
+                    { name: "Milk", price: 90 },
+                    { name: "Bred", price: 35 },
+                    { name: "Agg", price: 120 },
+                    { name: "Apple", price: 130 }
+
+                ]
+            },
+            methods: {
+                toHeigh() {
+                    this.products = this.products.sort((a, b) => (b.price < a.price ? 1 : -1));
+
+                },
+                toLow() {
+                    this.products = this.products.sort((a, b) => (b.price > a.price ? 1 : -1));
+                }
+
+            }
+        })
+    </script>
+
+</body>
+
+</html>
