@@ -1,4 +1,5 @@
 @import 'blog';
+@import 'details';
 
 .jost-regular {
     font-family: "Jost", sans-serif;
@@ -120,7 +121,7 @@ a {
     &__content {
         max-width: 1200px;
         height: 758px;
-        background-image: url("images/banner-back.jpeg");
+        background-image: url("../images/banner-back.jpeg");
         background-repeat: no-repeat;
         background-size: 1200px;
         background-position: center;

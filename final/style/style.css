@@ -1,5 +1,5 @@
 .page__name {
-  background-image: url("images/banner_blog.jpg");
+  background-image: url("../images/banner_blog.jpg");
   background-repeat: no-repeat;
   background-size: 1200px;
   background-position: center;
@@ -97,6 +97,90 @@
 }
 .news__page-link:hover {
   background-color: rgb(244, 240, 236);
+}
+
+.banner__details {
+  background-image: url(../images/banner_details.jpg);
+  height: 350px;
+  margin-bottom: 184px;
+}
+
+.details__content {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  -moz-column-gap: 52px;
+       column-gap: 52px;
+  margin-bottom: 88px;
+}
+.details__tags-title {
+  margin-bottom: 24px;
+  font-family: DM Serif Display;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 125%;
+  letter-spacing: 2%;
+  align-items: center;
+}
+.details__btn-box {
+  display: flex;
+  flex-direction: column;
+}
+.details__tag-btn {
+  background-color: rgb(244, 240, 236);
+  padding: 9px 10px 9px 10px;
+  border: none;
+  font-family: Jost;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 125%;
+  letter-spacing: 2%;
+}
+.details__tag-btn:hover {
+  background-color: rgb(41, 47, 54);
+  color: white;
+}
+.details__buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.article__title {
+  margin-bottom: 20px;
+}
+.article__text {
+  margin-bottom: 24px;
+}
+.article__img {
+  width: 100%;
+  border-radius: 50px;
+  margin-bottom: 46px;
+}
+.article__date-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 48px;
+}
+.article__ul-element {
+  display: flex;
+  flex-direction: column;
+}
+.article__ol-element {
+  display: grid;
+  grid-template-columns: 0.03fr 1fr;
+  margin-bottom: 24px;
+}
+.article__ol-number {
+  color: rgb(77, 80, 83);
+  font-family: DM Serif Display;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 125%;
+  letter-spacing: 2%;
+  text-align: left;
+  color: rgb(205, 162, 116);
 }
 
 .jost-regular {
@@ -209,7 +293,7 @@ a {
 .banner__content {
   max-width: 1200px;
   height: 758px;
-  background-image: url("images/banner-back.jpeg");
+  background-image: url("../images/banner-back.jpeg");
   background-repeat: no-repeat;
   background-size: 1200px;
   background-position: center;
