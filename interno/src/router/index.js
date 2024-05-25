@@ -17,21 +17,24 @@ export default new Router({
             name: 'Home',
             component: HomePage
         },
+
+        {
+            path: "/blog_details/:id",
+            name: "blog_details",
+            component: BlogDetailsPage,
+        },
         {
             path: '/blog*',
             name: 'Blog*',
             component: BlogPage
         },
+
         {
             path: '/blog/:pageNumber?',
             name: 'blog',
             component: BlogPage
         },
-        {
-            path: "/blog_details",
-            name: "blog_details",
-            component: BlogDetailsPage,
-        },
+
         {
             path: "/project_details/:id",
             name: "project_details",
@@ -47,6 +50,12 @@ export default new Router({
             name: 'project',
             component: ProjectPage
         },
+        {
+            path: '/project/:activeTag/:pageNumber?',
+            name: 'projectTag',
+            component: ProjectPage
+        },
+
         {
             path: '/404',
             name: 'NotFound',

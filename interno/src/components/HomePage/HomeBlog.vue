@@ -1,14 +1,22 @@
 <template>
   <section class="blog container">
     <div class="blog__text-content text-content">
-      <p class="blog__title subtitle">Follow Our Projects</p>
+      <p class="blog__title subtitle">Articles & News</p>
       <p class="blog__description description">
         It is a long established fact that a reader will be distracted by the of
-        readable content of page lookings at its layouts points.
+        readable content of a page when lookings at its layouts the points of
+        using.
       </p>
     </div>
     <div class="blog__content">
       <div
+        class="blog-item"
+        v-for="article in getArticlesPreview"
+        :key="article.id"
+      >
+        <BlogItem :article="article" />
+      </div>
+      <!-- <div
         class="blog-item"
         v-for="article in getArticlesPreview"
         :key="article.id"
@@ -53,15 +61,23 @@
             </svg>
           </a>
         </div>
-      </div>
+      </div> -->
     </div>
   </section>
 </template>
 
 <script>
 import { mapState, mapGetters } from "vuex";
+import BlogItem from "@/components/BlogPage/BlogItem.vue";
+
 export default {
   name: "HomeBlog",
+  props: {
+    article: Object,
+  },
+  components: {
+    BlogItem,
+  },
 
   data() {
     return {};

@@ -1,5 +1,7 @@
 <template>
   <div>
+    <ProjectTags @setActiveTag="setActiveTag" />
+
     <div class="project__list container">
       <li v-for="project in paginatedCatalog" :key="project.id">
         <ProjectItem :project="project" />
@@ -20,15 +22,19 @@
 <script>
 import { mapGetters, mapState } from "vuex";
 import ProjectItem from "@/components/ProjectPage/ProjectItem.vue";
+import ProjectTags from "@/components/ProjectPage/ProjectTags.vue";
 
 export default {
   name: "ProjectList",
   components: {
     ProjectItem,
+    ProjectTags,
   },
 
   data() {
-    return {};
+    return {
+      activeTag: null,
+    };
   },
 
   mounted() {},
@@ -41,14 +47,25 @@ export default {
         : pageNumberParam;
     },
     getPageLink(page) {
-      return `/project/${page}`;
+      if (this.activeTag === null) {
+        return `/project/${page}`;
+      } else {
+        console.log(this.activeTag);
+        return `/project/${this.activeTag}/${page}`;
+      }
+    },
+    setActiveTag(tagName) {
+      this.activeTag = tagName;
     },
   },
   computed: {
     ...mapState(["projectsData"]),
     ...mapGetters(["paginatedProjects", "getProjectsTotalPages"]),
     paginatedCatalog() {
-      return this.paginatedProjects(this.getCurrentPageNumber());
+      return this.paginatedProjects(
+        this.getCurrentPageNumber(),
+        this.activeTag
+      );
     },
   },
 };

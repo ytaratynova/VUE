@@ -1,19 +1,19 @@
 <template>
   <div>
     <BlogDetailsBanner />
-    <TagsBlog />
+    <BlogDetailsList />
   </div>
 </template>
 
 <script>
 import BlogDetailsBanner from "@/components/BlogDetailsPage/BlogDetailsBanner.vue";
-import TagsBlog from "@/components/BlogDetailsPage/TagsBlog.vue";
+import BlogDetailsList from "@/components/BlogDetailsPage/BlogDetailsList.vue";
 
 export default {
   name: "BlogDetailsPage",
   components: {
     BlogDetailsBanner,
-    TagsBlog,
+    BlogDetailsList,
   },
 };
 </script>

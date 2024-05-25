@@ -8,18 +8,20 @@
         {{ getProjectById(this.id).text }}
       </p>
     </div>
-    <img
-      :src="require('@/assets/images/' + getProjectById(this.id).fileName)"
-      alt="getProjectById(this.id).category"
-      class="project-details__img"
-    />
+
+    <SliderComp :project="getProjectById(this.id)" />
   </div>
 </template>
 
 <script>
 import { mapGetters, mapState } from "vuex";
+import SliderComp from "@/components/ProjectDetailsPage/SliderComp.vue";
+
 export default {
   name: "ProjectDetails",
+  components: {
+    SliderComp,
+  },
 
   data() {
     return {

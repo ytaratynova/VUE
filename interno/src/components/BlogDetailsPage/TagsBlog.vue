@@ -5,10 +5,11 @@
       <button
         v-for="tag in getTagsList"
         :key="tag.id"
-        @click="changeTab(tag)"
+        @click="changeActiveTag(tag)"
         class="details__tag-btn"
+        :class="{ active: tag.name === activeTag }"
       >
-        {{ tag }}
+        {{ tag.name }}
       </button>
     </div>
   </div>
@@ -28,16 +29,13 @@ export default {
   mounted() {},
 
   methods: {
-    changeTab(tag) {
-      this.$router.push({ name: "blog_details" });
-      if (this.activeTag && tag.name === this.activeTag) {
-        this.activeTag = null;
-      } else {
-        this.activeTag = tag.name;
-      }
+    changeActiveTag(tag) {
+      this.$router.push({ path: `/blog_details/${tag.name}` });
+      this.activeTag = tag.name;
       this.$emit("setActiveTag", tag.name);
     },
   },
+
   computed: {
     ...mapState(["articlesData"]),
     ...mapGetters(["getTagsList"]),
@@ -46,4 +44,44 @@ export default {
 </script>
 
 <style scoped>
+.details__tags-title {
+  margin-bottom: 24px;
+  font-family: DM Serif Display;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 125%;
+  letter-spacing: 2%;
+  align-items: center;
+}
+.details__btn-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.details__tag-btn {
+  background-color: rgb(244, 240, 236);
+  padding: 9px 10px 9px 10px;
+  border: none;
+  font-family: Jost;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 125%;
+  letter-spacing: 2%;
+}
+
+.details__tag-btn:hover {
+  background-color: rgb(41, 47, 54);
+  color: white;
+}
+
+.details__buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.active {
+  background-color: rgb(41, 47, 54);
+  color: white;
+}
 </style>

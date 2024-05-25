@@ -14,44 +14,7 @@
         :key="project.id"
         :item="project"
       >
-        <div class="project-item__content">
-          <div class="project-item__img-container">
-            <img
-              :src="require('@/assets/images/' + project.fileName)"
-              alt="photo"
-              class="project-item__img"
-            />
-          </div>
-          <div class="project-item__about">
-            <div class="project-item__text">
-              <p class="project-item__title">{{ project.category }}</p>
-              <p class="project-item__description description">
-                {{ project.subCategory }}
-              </p>
-            </div>
-            <a href="#" class="project-item__link"
-              ><svg
-                width="10.004051"
-                height="20.008301"
-                viewBox="0 0 10.0041 20.0083"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-              >
-                <desc>Created with Pixso.</desc>
-                <defs />
-                <path
-                  id="Vector"
-                  d="M1.00405 19.0042L9.00405 10.0042L1.00405 1.00415"
-                  stroke="#292F36"
-                  stroke-opacity="1.000000"
-                  stroke-width="2.000000"
-                  stroke-linejoin="round"
-                  stroke-linecap="round"
-                /></svg
-            ></a>
-          </div>
-        </div>
+        <ProjectItem :project="project" />
       </div>
     </div>
   </section>
@@ -61,8 +24,13 @@
 
 <script>
 import { mapState, mapGetters } from "vuex";
+import ProjectItem from "@/components/ProjectPage/ProjectItem.vue";
+
 export default {
   name: "HomeProject",
+  components: {
+    ProjectItem,
+  },
 
   data() {
     return {};
@@ -108,6 +76,9 @@ export default {
   gap: 46px;
   margin-bottom: 96px;
 }
+/* .project__content:first-child .project-item__img-container {
+  border-radius: 50%;
+} */
 
 .project-item__content {
   display: flex;

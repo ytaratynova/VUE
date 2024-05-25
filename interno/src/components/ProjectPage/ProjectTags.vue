@@ -1,12 +1,16 @@
 <template>
   <div class="tags">
-    <nav class="project__tags">
-      <li v-for="tag in getProjectTagsList" :key="tag.id">
-        <router-link to="`/project/${tag}`" class="project__tag"
-          >{{ tag.name }}
-        </router-link>
-      </li>
-    </nav>
+    <div class="project__tags">
+      <button
+        v-for="tag in getProjectTagsList"
+        :key="tag.id"
+        @click="changeActiveTag(tag)"
+        class="project__tag"
+        :class="{ active: tag.name === activeTag }"
+      >
+        {{ tag.name }}
+      </button>
+    </div>
   </div>
 </template>
 
@@ -24,15 +28,11 @@ export default {
   mounted() {},
 
   methods: {
-    // toggleTagActive(cat) {
-    //         this.$router.push({ name: 'project' });
-    //         if (this.activeTag && cat.name === this.activeCat) {
-    //             this.activeCat = null;
-    //         } else {
-    //             this.activeCat = cat.name;
-    //         }
-    //         this.$emit('setActiveCat', cat.name);
-    //     },
+    changeActiveTag(tag) {
+      this.$router.push({ path: `/project/${tag.name}` });
+      this.activeTag = tag.name;
+      this.$emit("setActiveTag", tag.name);
+    },
   },
   computed: {
     ...mapState(["projectsData"]),
