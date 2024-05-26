@@ -17,7 +17,7 @@ export default new Vuex.Store({
                 },
                 {
                     id: 2,
-                    title: 'Low Cost Latest Invented Interior Designing Ideas. Work',
+                    title: 'Low Cost Latest Invented Interior Designing Ideas',
                     category: 'Living Design',
                     subCategory: 'Interior / Home / Decore',
                     date: '22 December,2022',
@@ -44,7 +44,7 @@ export default new Vuex.Store({
                 },
                 {
                     id: 5,
-                    title: 'Low Cost Latest Invented Interior Designing Ideas. Work',
+                    title: 'Low Cost Latest Invented Interior Designing Ideas',
                     category: 'Living Design',
                     subCategory: 'Decor / Artchitecture',
                     date: '22 December,2022',
@@ -66,16 +66,16 @@ export default new Vuex.Store({
                     category: 'Living Design',
                     subCategory: 'Interior / Home / Decore',
                     date: '26 December,2022',
-                    fileName: 'blog_7.jpg',
+                    fileName: 'project_2.jpg',
                     text: 'Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpis dignissim maximus.posuere in.Contrary to popular belief.'
                 },
                 {
                     id: 8,
-                    title: 'Low Cost Latest Invented Interior Designing Ideas. Work',
+                    title: 'Low Cost Latest Invented Interior Designing Ideas',
                     category: 'Interior Design',
                     subCategory: 'Decor / Artchitecture',
                     date: '22 December,2022',
-                    fileName: 'blog_8.jpg',
+                    fileName: 'project_3.jpg',
                     text: 'Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpis dignissim maximus.posuere in.Contrary to popular belief.'
                 },
                 {
@@ -84,7 +84,7 @@ export default new Vuex.Store({
                     category: 'Interior Design',
                     subCategory: 'Decor / Artchitecture',
                     date: '25 December,2022',
-                    fileName: 'blog_9.jpg',
+                    fileName: 'project_4.jpg',
                     text: 'Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpis dignissim maximus.posuere in.Contrary to popular belief.'
                 },
                 {
@@ -93,7 +93,7 @@ export default new Vuex.Store({
                     category: 'Bedroom',
                     subCategory: 'Interior / Home / Decore',
                     date: '25 December,2022',
-                    fileName: 'blog_10.jpg',
+                    fileName: 'project_8.jpg',
                     text: 'Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpis dignissim maximus.posuere in.Contrary to popular belief.'
                 },
                 {
@@ -102,7 +102,7 @@ export default new Vuex.Store({
                     category: 'Bedroom',
                     subCategory: 'Interior / Home / Decore',
                     date: '25 December,2022',
-                    fileName: 'blog_11.jpg',
+                    fileName: 'project_9.jpg',
                     text: 'Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpis dignissim maximus.posuere in.Contrary to popular belief.'
                 },
                 {
@@ -111,7 +111,7 @@ export default new Vuex.Store({
                     category: 'Bedroom',
                     subCategory: 'Interior / Home / Decore',
                     date: '25 December,2022',
-                    fileName: 'blog_12.jpg',
+                    fileName: 'project_10.jpg',
                     text: 'Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpis dignissim maximus.posuere in.Contrary to popular belief.'
                 },
                 {
@@ -120,7 +120,7 @@ export default new Vuex.Store({
                     category: 'Bedroom',
                     subCategory: 'Interior / Home / Decore',
                     date: '25 December,2022',
-                    fileName: 'blog_13.jpg',
+                    fileName: 'project_12.jpg',
                     text: 'Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpis dignissim maximus.posuere in.Contrary to popular belief.'
                 },
                 {
@@ -286,7 +286,14 @@ export default new Vuex.Store({
             return state.projectsData.array[index - 1]
         },
 
-        getProjectsTotalPages: (state) => Math.ceil(state.projectsData.array.length / 6),
+        getProjectsTotalPages: (state) => (category) => {
+            if (category === null) {
+                return Math.ceil(state.projectsData.array.length / 6)
+            } else {
+                return Math.ceil(state.projectsData.array.filter((project) => project.category.includes(category)).length / 6)
+            }
+
+        },
 
         paginatedProjects: (state) => (currentPage, category) => {
             const startIndex = (currentPage - 1) * 8;
@@ -311,9 +318,10 @@ export default new Vuex.Store({
 
         getArticlsTotalPages: (state) => Math.ceil(state.articlesData.array.length / 6),
 
+
         paginatedArticls: (state) => (currentPage) => {
-            const startIndex = (currentPage - 1) * 6;
-            const endIndex = startIndex + 6;
+            const startIndex = (currentPage - 1) * 6
+            const endIndex = startIndex + 6
             return state.articlesData.array.slice(startIndex, endIndex);
         },
         getTagsList: (state) => state.articlesData.tabs,

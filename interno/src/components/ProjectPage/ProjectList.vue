@@ -9,7 +9,7 @@
     </div>
     <nav class="news__pagination">
       <li
-        v-for="page in getProjectsTotalPages"
+        v-for="page in getProjectsTotalPages(this.activeTag)"
         :key="page"
         class="news__page-link"
       >
@@ -50,7 +50,6 @@ export default {
       if (this.activeTag === null) {
         return `/project/${page}`;
       } else {
-        console.log(this.activeTag);
         return `/project/${this.activeTag}/${page}`;
       }
     },
@@ -92,7 +91,7 @@ li {
 
 .news__page-link {
   display: flex;
-  border: 1px solid rgb(205, 162, 116);
+  border: 1px solid rgb(244, 240, 236);
   width: 52px;
   height: 52px;
   align-items: center;

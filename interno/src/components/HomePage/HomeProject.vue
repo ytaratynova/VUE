@@ -76,9 +76,6 @@ export default {
   gap: 46px;
   margin-bottom: 96px;
 }
-/* .project__content:first-child .project-item__img-container {
-  border-radius: 50%;
-} */
 
 .project-item__content {
   display: flex;
@@ -86,8 +83,25 @@ export default {
   gap: 25px;
 }
 
+.project-item__content {
+  border-radius: 200px;
+}
+
 .project-item__img {
   width: 100%;
+}
+
+.img_01 {
+  border-radius: 0 80px 0 0;
+}
+.img_02 {
+  border-radius: 80px 0 0 0;
+}
+.img_03 {
+  border-radius: 0 0 80px 0;
+}
+.img_04 {
+  border-radius: 0 0 0 80px;
 }
 
 .project-item__about {

@@ -17,7 +17,10 @@
 
         <div class="blog-item__link-box">
           <p class="blog-item__date">{{ getArticleLast.date }}</p>
-          <a href="#" class="blog-item__link">
+          <router-link
+            :to="`/blog_details/${getArticleLast.id}`"
+            class="blog-item__link"
+          >
             <svg
               width="7.946899"
               height="15.379547"
@@ -38,7 +41,7 @@
                 stroke-linecap="round"
               />
             </svg>
-          </a>
+          </router-link>
         </div>
       </div>
     </div>

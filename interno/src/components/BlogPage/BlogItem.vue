@@ -65,7 +65,6 @@ export default {
   box-sizing: border-box;
   border: 1px solid rgb(231, 231, 231);
   border-radius: 62px;
-
   box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 0.25);
 }
 

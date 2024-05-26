@@ -9,59 +9,9 @@
       </p>
     </div>
     <div class="blog__content">
-      <div
-        class="blog-item"
-        v-for="article in getArticlesPreview"
-        :key="article.id"
-      >
+      <div v-for="article in getArticlesPreview" :key="article.id">
         <BlogItem :article="article" />
       </div>
-      <!-- <div
-        class="blog-item"
-        v-for="article in getArticlesPreview"
-        :key="article.id"
-        :item="article"
-      >
-        <div>
-          <div class="blog-item__img-box">
-            <img
-              :src="require('@/assets/images/' + article.fileName)"
-              alt="photo"
-              class="blog-item__img"
-            />
-            <p class="blog-item__on-img">{{ article.category }}</p>
-          </div>
-          <p class="blog-item__title">
-            {{ article.title }}
-          </p>
-        </div>
-
-        <div class="blog-item__link-box">
-          <p class="blog-item__date">{{ article.date }}</p>
-          <a href="#" class="blog-item__link">
-            <svg
-              width="7.946899"
-              height="15.379547"
-              viewBox="0 0 7.9469 15.3795"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-            >
-              <desc>Created with Pixso.</desc>
-              <defs />
-              <path
-                id="Vector"
-                d="M1.00403 14.3755L6.9469 7.68977L1.00403 1.00406"
-                stroke="#292F36"
-                stroke-opacity="1.000000"
-                stroke-width="2.000000"
-                stroke-linejoin="round"
-                stroke-linecap="round"
-              />
-            </svg>
-          </a>
-        </div>
-      </div> -->
     </div>
   </section>
 </template>

@@ -2,11 +2,7 @@
   <div class="news container">
     <p class="news__title subtitle">Articles & News</p>
     <div class="blog__content">
-      <div
-        class="blog-item"
-        v-for="article in paginatedCatalog"
-        :key="article.id"
-      >
+      <div v-for="article in paginatedCatalog" :key="article.id">
         <BlogItem :article="article" />
       </div>
     </div>

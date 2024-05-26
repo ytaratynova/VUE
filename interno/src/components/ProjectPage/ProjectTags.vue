@@ -29,9 +29,15 @@ export default {
 
   methods: {
     changeActiveTag(tag) {
-      this.$router.push({ path: `/project/${tag.name}` });
-      this.activeTag = tag.name;
-      this.$emit("setActiveTag", tag.name);
+      if (this.activeTag !== tag.name) {
+        this.$router.push({ path: `/project/${tag.name}` });
+        this.activeTag = tag.name;
+        this.$emit("setActiveTag", tag.name);
+      } else {
+        this.$router.push({ path: `/project` });
+        this.activeTag = null;
+        this.$emit("setActiveTag", null);
+      }
     },
   },
   computed: {
@@ -48,12 +54,13 @@ export default {
   margin-bottom: 35px;
 }
 .project__tags {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-direction: row;
   justify-items: center;
   align-items: center;
   height: 75px;
-  width: 880px;
+  border-radius: 15px;
+  border: 1px solid rgb(205, 162, 116);
 }
 
 .project__tag {
@@ -64,6 +71,21 @@ export default {
   line-height: 125%;
   letter-spacing: 2%;
   text-align: center;
+  padding: 26px 66px;
+  background-color: white;
+  border: none;
+}
+
+.project__tag:hover {
+  background-color: rgb(205, 162, 116);
+  border-radius: 15px;
+  color: white;
+}
+
+.active {
+  background-color: rgb(205, 162, 116);
+  border-radius: 15px;
+  color: white;
 }
 
 li {
