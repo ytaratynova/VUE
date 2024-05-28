@@ -83,10 +83,6 @@ export default {
   gap: 25px;
 }
 
-.project-item__content {
-  border-radius: 200px;
-}
-
 .project-item__img {
   width: 100%;
 }

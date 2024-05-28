@@ -25,7 +25,6 @@ export default {
 .page__name {
   background-image: url("@/assets/images/banner_blog.jpg");
   background-repeat: no-repeat;
-  /* background-size: 1200px; */
   background-position: center;
   display: flex;
   justify-content: center;

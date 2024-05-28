@@ -71,9 +71,6 @@ export default {
 .project-item__img {
   width: 100%;
 }
-/* .img_01 {
-  border-radius: 0 0 0 0;
-} */
 
 .project-item__about {
   display: flex;
@@ -103,6 +100,10 @@ export default {
   padding: 26px 30px;
 }
 .project-item__link:hover {
-  background-color: #f4f0ec;
+  background-color: white;
+}
+
+.project-item__content:hover {
+  background-color: rgb(244, 240, 236);
 }
 </style>
